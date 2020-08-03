@@ -90,9 +90,9 @@ func (j jsonValue) MarshalJSON() (data []byte, err error) {
 	case lua.LString:
 		data, err = json.Marshal(string(converted))
 	case *lua.LTable:
-		if j.visited[converted] {
-			return nil, errNested
-		}
+		//if j.visited[converted] {
+		//	return nil, errNested
+		//}
 		j.visited[converted] = true
 
 		key, value := converted.Next(lua.LNil)
